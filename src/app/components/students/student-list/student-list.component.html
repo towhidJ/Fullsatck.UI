@@ -1,0 +1,53 @@
+<div class="container py-5">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h1 class="text-center">Student List</h1>
+    </div>
+    <div>
+      <a class="btn" routerLink="/student/add">Add Student</a>
+    </div>
+  </div>
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Name & Email</th>
+        <th>Reg no</th>
+        <th>Phone</th>
+        <th>Department</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let student of students">
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{ student.studentName }}</p>
+              <p class="text-muted mb-0">{{ student.email }}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{ student.registrationNo }}</p>
+        </td>
+        <td>
+          <span class="badge badge-success rounded-pill d-inline">{{
+            student.contactNo
+          }}</span>
+        </td>
+        <td>{{ student.departmentTB.departmentName }}</td>
+        <td>{{ student.address }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-link btn-sm btn-rounded"
+            routerLink="/student/edit/{{ student.id }}"
+          >
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

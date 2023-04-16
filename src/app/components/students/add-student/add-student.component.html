@@ -1,0 +1,123 @@
+<div class="row justify-content-center pt-5">
+  <div class="col-2">
+    <h1 *ngIf="isAddMode">Add Student</h1>
+    <h1 *ngIf="!isAddMode">Edit Student</h1>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="d-flex justify-content-center my-5">
+    <form class="form" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <!-- Text input -->
+      <input hidden formControlName="id" type="text" />
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example3"
+          class="form-control"
+          formControlName="studentName"
+        />
+        <label class="form-label" for="form6Example3">Student Name</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            studentName?.invalid && (studentName?.touched || studentName?.dirty)
+          "
+        >
+          <div *ngIf="studentName?.errors?.['required']">
+            Student can't be emtpy
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example3"
+          class="form-control"
+          formControlName="email"
+        />
+        <label class="form-label" for="form6Example3">Email</label>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example4"
+          class="form-control"
+          formControlName="contactNo"
+        />
+        <label class="form-label" for="form6Example4">Phone</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="contactNo?.invalid && (contactNo?.touched || contactNo?.dirty)"
+        >
+          <div *ngIf="contactNo?.errors?.['required']">
+            Phone number can't be emtpy
+          </div>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <select class="form-select mb-4" formControlName="departmentId">
+        <option value="">---Select Department---</option>
+        <option value="{{ dep.id }}" *ngFor="let dep of departments">
+          {{ dep.departmentName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          departmentId?.invalid &&
+          (departmentId?.touched || departmentId?.dirty)
+        "
+      >
+        <div *ngIf="departmentId?.errors?.['required']">
+          Please select Department
+        </div>
+      </div>
+
+      <!-- Number input -->
+      <div class="form-floating mb-4 datepicker">
+        <input
+          type="date"
+          id="form6Example6"
+          class="form-control"
+          formControlName="registerDate"
+        />
+        <label class="form-label" for="form6Example6">Date</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            registerDate?.invalid &&
+            (registerDate?.touched || registerDate?.dirty)
+          "
+        >
+          <div *ngIf="registerDate?.errors?.['required']">
+            Please select Date
+          </div>
+        </div>
+      </div>
+
+      <!-- Message input -->
+      <div class="form-floating mb-4">
+        <textarea
+          class="form-control"
+          id="form6Example7"
+          rows="8"
+          formControlName="address"
+        ></textarea>
+        <label class="form-label" for="form6Example7">Address</label>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">
+        Add Student
+      </button>
+      <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span>
+    </form>
+  </div>
+</div>
