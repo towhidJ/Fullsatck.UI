@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs';
 import { Department } from 'src/app/model/department.model';
 import { StudentDto } from 'src/app/model/student.model';
@@ -23,14 +24,16 @@ export class AddStudentComponent implements OnInit {
   id: number = 0;
   isAddMode: boolean = true;
   loading = false;
-  submitted = false;
+  submitted = true;
+  enbDis = 'enable';
 
   constructor(
     private departmentService: DepartmentService,
     private studentService: StudentService,
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toaster: ToastrService
   ) {
     this.studentForm = new FormGroup({
       id: new FormControl(''),
@@ -46,7 +49,7 @@ export class AddStudentComponent implements OnInit {
     });
   }
   errorMessage = '';
-
+  btnText = 'Add Student';
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.params['id']);
     this.isAddMode = !this.id;
@@ -62,6 +65,8 @@ export class AddStudentComponent implements OnInit {
     });
 
     if (!this.isAddMode) {
+      this.btnText = 'Update Student';
+      this.enbDis = 'disable';
       this.studentService
         .getStudentById(this.id)
         .pipe(first())
@@ -104,14 +109,14 @@ export class AddStudentComponent implements OnInit {
   addStudent() {
     if (this.studentForm.valid) {
       let body = this.studentForm.value;
-      console.log(body);
       this.studentService.addStudent(body).subscribe({
         next: (data: any) => {
-          console.log(data);
+          this.toaster.success('Student Added Success');
           // this.reloadPage();
         },
         error: (err) => {
           this.errorMessage = err.error;
+          this.toaster.error(this.errorMessage);
         },
       });
     } else {
@@ -125,11 +130,15 @@ export class AddStudentComponent implements OnInit {
       .pipe(first())
       .subscribe({
         next: () => {
+          this.toaster.success('Student Updated', 'Update Student');
+
           this.router.navigate(['/student'], { relativeTo: this.route });
         },
         error: (error) => {
           this.loading = false;
+          this.toaster.error(error);
         },
       });
   }
+  toastS() {}
 }

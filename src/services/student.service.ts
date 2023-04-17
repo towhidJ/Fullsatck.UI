@@ -33,4 +33,7 @@ export class StudentService {
       updateStudent
     );
   }
+  deleteStudent(id: number): Observable<number> {
+    return this.http.delete<number>(this.url + '/api/student/remove/' + id);
+  }
 }

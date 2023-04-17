@@ -39,13 +39,26 @@
         <td>{{ student.departmentTB.departmentName }}</td>
         <td>{{ student.address }}</td>
         <td>
-          <button
-            type="button"
-            class="btn btn-link btn-sm btn-rounded"
-            routerLink="/student/edit/{{ student.id }}"
-          >
-            Edit
-          </button>
+          <div class="row">
+            <div class="col-lg-3">
+              <button
+                type="button"
+                class="btn btn-secondary btn-sm btn-rounded"
+                routerLink="/student/edit/{{ student.id }}"
+              >
+                Edit
+              </button>
+            </div>
+            <div class="col-lg-2">
+              <button
+                type="button"
+                class="btn btn-danger btn-sm btn-rounded"
+                (click)="onDeleteStudent(student.id)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
         </td>
       </tr>
     </tbody>

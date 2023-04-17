@@ -62,7 +62,11 @@
       </div>
 
       <!-- Email input -->
-      <select class="form-select mb-4" formControlName="departmentId">
+      <select
+        *ngIf="isAddMode"
+        class="form-select mb-4"
+        formControlName="departmentId"
+      >
         <option value="">---Select Department---</option>
         <option value="{{ dep.id }}" *ngFor="let dep of departments">
           {{ dep.departmentName }}
@@ -83,6 +87,7 @@
       <!-- Number input -->
       <div class="form-floating mb-4 datepicker">
         <input
+          *ngIf="isAddMode"
           type="date"
           id="form6Example6"
           class="form-control"
@@ -115,7 +120,7 @@
 
       <!-- Submit button -->
       <button type="submit" class="btn btn-primary btn-block mb-4">
-        Add Student
+        {{ btnText }}
       </button>
       <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span>
     </form>
