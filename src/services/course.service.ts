@@ -1,0 +1,41 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Course, CourseDto, CourseShowView } from 'src/app/model/course.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CourseService {
+  constructor(private http: HttpClient) {}
+
+  url: string = 'https://localhost:7261';
+  getAllCourse(): Observable<Course[]> {
+    return this.http.get<Course[]>(this.url + '/api/courses');
+  }
+  getCourseByDepId(id: number): Observable<CourseShowView[]> {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('departmentId', id);
+    return this.http.get<CourseShowView[]>(
+      this.url + '/api/courses/getByDepId/',
+      { params: queryParams }
+    );
+  }
+
+  addCourse(addCourse: CourseDto): Observable<CourseDto> {
+    return this.http.post<CourseDto>(
+      this.url + '/api/courses/create',
+      addCourse
+    );
+  }
+
+  updateCourse(id: number, updateCourse: CourseDto): Observable<CourseDto> {
+    return this.http.put<CourseDto>(
+      this.url + '/api/courses/update',
+      updateCourse
+    );
+  }
+  deleteStudent(id: number): Observable<number> {
+    return this.http.delete<number>(this.url + '/api/courses/remove/' + id);
+  }
+}

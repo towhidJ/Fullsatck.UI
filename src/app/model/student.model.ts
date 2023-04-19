@@ -22,7 +22,3 @@ export interface Student {
   departmentId: number;
   departmentTB: Department;
 }
-
-export type SForm<T> = {
-  [K in keyof T]?: any;
-};

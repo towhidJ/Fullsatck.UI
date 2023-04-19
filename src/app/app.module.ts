@@ -17,6 +17,8 @@ import { AddStudentComponent } from './components/students/add-student/add-stude
 import { StudentListComponent } from './components/students/student-list/student-list.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { UserComponent } from './components/user/user.component';
+import { CourseListComponent } from './components/courses/course-list/course-list.component';
+import { AddEditCourseComponent } from './components/courses/add-edit-course/add-edit-course.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { UserComponent } from './components/user/user.component';
     StudentListComponent,
     FooterComponent,
     HeaderComponent,
+    CourseListComponent,
+    AddEditCourseComponent,
   ],
   imports: [
     BrowserModule,

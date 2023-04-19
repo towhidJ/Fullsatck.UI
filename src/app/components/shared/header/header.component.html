@@ -31,11 +31,48 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="employee">Day</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="student">Student</a>
+        <!-- Navbar dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Student
+          </a>
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" routerLink="student">Student</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="student/add">Add Student</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="student/add">Add Student</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Course
+          </a>
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" routerLink="course/add">Add Course</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="course">Course View</a>
+            </li>
+          </ul>
         </li>
       </ul>
       <!-- Left links -->

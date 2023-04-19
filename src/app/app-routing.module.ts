@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddEditCourseComponent } from './components/courses/add-edit-course/add-edit-course.component';
+import { CourseListComponent } from './components/courses/course-list/course-list.component';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
 import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
 import { HomeComponent } from './components/employees/home/home.component';
@@ -36,6 +38,16 @@ const routes: Routes = [
   },
 
   { path: 'student/edit/:id', component: AddStudentComponent },
+  {
+    path: 'course/add',
+    component: AddEditCourseComponent,
+  },
+  {
+    path: 'course',
+    component: CourseListComponent,
+  },
+  { path: 'course/edit/:id', component: AddEditCourseComponent },
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
