@@ -1,13 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course, CourseShowView } from 'src/app/model/course.model';
-import { CourseDto } from './../app/model/course.model';
+import { Course, CourseDto, CourseShowView } from 'src/app/model/course.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CourseService {
+export class TeacherService {
   constructor(private http: HttpClient) {}
 
   url: string = 'https://localhost:7261';

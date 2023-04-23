@@ -26,6 +26,7 @@ export interface Course {
 }
 
 export interface CourseShowView {
+  id: number;
   departmentCode: string;
   courseCode: string;
   teacherName: string;

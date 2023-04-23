@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEditCourseComponent } from './components/courses/add-edit-course/add-edit-course.component';
+import { CourseAssignViewListComponent } from './components/courses/course-assign-view-list/course-assign-view-list.component';
 import { CourseListComponent } from './components/courses/course-list/course-list.component';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
 import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'course',
     component: CourseListComponent,
+  },
+  {
+    path: 'course-view',
+    component: CourseAssignViewListComponent,
   },
   { path: 'course/edit/:id', component: AddEditCourseComponent },
 

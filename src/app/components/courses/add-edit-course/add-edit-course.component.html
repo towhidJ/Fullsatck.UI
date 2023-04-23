@@ -1,1 +1,128 @@
-<p>add-edit-course works!</p>
+<div class="row justify-content-center pt-5">
+  <div class="col-2">
+    <h1 *ngIf="isAddMode">Add Course</h1>
+    <h1 *ngIf="!isAddMode">Edit Course</h1>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="d-flex justify-content-center my-5">
+    <form class="form" [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <!-- Text input -->
+      <input hidden formControlName="id" type="text" />
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example3"
+          class="form-control"
+          formControlName="courseCode"
+        />
+        <label class="form-label" for="form6Example3">Course Code</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            courseCode?.invalid && (courseCode?.touched || courseCode?.dirty)
+          "
+        >
+          <div *ngIf="courseCode?.errors?.['required']">
+            courseCode can't be emtpy
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example3"
+          class="form-control"
+          formControlName="courseName"
+        />
+        <label class="form-label" for="form6Example3">Course Name</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            courseName?.invalid && (courseName?.touched || courseName?.dirty)
+          "
+        >
+          <div *ngIf="courseName?.errors?.['required']">
+            Course Name can't be emtpy
+          </div>
+        </div>
+      </div>
+      <!-- Message input -->
+      <div class="form-floating mb-4">
+        <textarea
+          class="form-control"
+          id="form6Example7"
+          rows="8"
+          formControlName="description"
+        ></textarea>
+        <label class="form-label" for="form6Example7">Description</label>
+      </div>
+      <!-- Text input -->
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example4"
+          class="form-control"
+          formControlName="credit"
+        />
+        <label class="form-label" for="form6Example4">Credit</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="credit?.invalid && (credit?.touched || credit?.dirty)"
+        >
+          <div *ngIf="credit?.errors?.['required']">
+            please type your credit
+          </div>
+          <div *ngIf="credit?.errors?.['min']">
+            Enter number between 0.5 to 5
+          </div>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <select class="form-select mb-4" formControlName="departmentId">
+        <option value="">---Select Department---</option>
+        <option value="{{ dep.id }}" *ngFor="let dep of departments">
+          {{ dep.departmentName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          departmentId?.invalid &&
+          (departmentId?.touched || departmentId?.dirty)
+        "
+      >
+        <div *ngIf="departmentId?.errors?.['required']">
+          Please select Department
+        </div>
+      </div>
+      <select class="form-select mb-4" formControlName="semesterId">
+        <option value="">---Select Semester---</option>
+        <option value="{{ sem.id }}" *ngFor="let sem of semesters">
+          {{ sem.semesterName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          semesterId?.invalid && (semesterId?.touched || semesterId?.dirty)
+        "
+      >
+        <div *ngIf="semesterId?.errors?.['required']">
+          Please select Semester
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">
+        {{ btnText }}
+      </button>
+      <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span>
+    </form>
+  </div>
+</div>

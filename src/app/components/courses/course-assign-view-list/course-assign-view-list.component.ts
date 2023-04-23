@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Course } from 'src/app/model/course.model';
+import { CourseShowView } from 'src/app/model/course.model';
 import { Department } from 'src/app/model/department.model';
 import { Semester } from 'src/app/model/semester.model';
 import { CourseService } from 'src/services/course.service';
 import { DepartmentService } from 'src/services/department.service';
 
 @Component({
-  selector: 'app-course-list',
-  templateUrl: './course-list.component.html',
-  styleUrls: ['./course-list.component.css'],
+  selector: 'app-course-assign-view-list',
+  templateUrl: './course-assign-view-list.component.html',
+  styleUrls: ['./course-assign-view-list.component.css'],
 })
-export class CourseListComponent implements OnInit {
-  courses: Course[] = [];
+export class CourseAssignViewListComponent {
+  courses: CourseShowView[] = [];
   departments: Department[] = [];
   semesters: Semester[] = [];
 
@@ -29,11 +29,18 @@ export class CourseListComponent implements OnInit {
   // });
   ngOnInit(): void {
     // this.getCouesesByDepartment(id);
-    this.getAllCourse();
+    this.departmentService.getAllDepartment().subscribe({
+      next: (departments) => {
+        this.departments = departments;
+      },
+      error: (response) => {
+        console.log(response);
+      },
+    });
   }
 
-  getAllCourse() {
-    this.courseService.getAllCourse().subscribe({
+  getCouesesByDepartment(id: number) {
+    this.courseService.getCourseByDepId(id).subscribe({
       next: (course) => {
         this.courses = course;
       },
@@ -42,18 +49,9 @@ export class CourseListComponent implements OnInit {
       },
     });
   }
-  onDeleteCourse(id: number) {
-    if (confirm('Are you delete Course')) {
-      this.courseService.deleteCourse(id).subscribe({
-        next: (cou) => {
-          this.toaster.error('Course Delete Success');
-          // window.location.reload();
-          this.getAllCourse();
-        },
-        error: (response) => {
-          console.log(response);
-        },
-      });
-    }
+  onChangeDepartment(value: any) {
+    var depId = value.target.value;
+    console.log(depId);
+    this.getCouesesByDepartment(depId);
   }
 }
