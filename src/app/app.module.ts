@@ -22,6 +22,9 @@ import { AddEditCourseComponent } from './components/courses/add-edit-course/add
 import { CourseAssignViewListComponent } from './components/courses/course-assign-view-list/course-assign-view-list.component';
 import { TeacherListComponent } from './components/teachers/teacher-list/teacher-list.component';
 import { AddEditTeacherComponent } from './components/teachers/add-edit-teacher/add-edit-teacher.component';
+import { EnrollStudentComponent } from './components/students/enroll-student/enroll-student.component';
+import { AddStudentResultComponent } from './components/students/add-student-result/add-student-result.component';
+import { ShowStudentResultComponent } from './components/students/show-student-result/show-student-result.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { AddEditTeacherComponent } from './components/teachers/add-edit-teacher/
     CourseAssignViewListComponent,
     TeacherListComponent,
     AddEditTeacherComponent,
+    EnrollStudentComponent,
+    AddStudentResultComponent,
+    ShowStudentResultComponent,
   ],
   imports: [
     BrowserModule,

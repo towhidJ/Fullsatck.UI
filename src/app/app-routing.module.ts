@@ -6,7 +6,10 @@ import { CourseListComponent } from './components/courses/course-list/course-lis
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
 import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
 import { HomeComponent } from './components/employees/home/home.component';
+import { AddStudentResultComponent } from './components/students/add-student-result/add-student-result.component';
 import { AddStudentComponent } from './components/students/add-student/add-student.component';
+import { EnrollStudentComponent } from './components/students/enroll-student/enroll-student.component';
+import { ShowStudentResultComponent } from './components/students/show-student-result/show-student-result.component';
 import { StudentListComponent } from './components/students/student-list/student-list.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RoleGuard } from './shared/role.guard';
@@ -36,6 +39,18 @@ const routes: Routes = [
   {
     path: 'student',
     component: StudentListComponent,
+  },
+  {
+    path: 'student/enroll',
+    component: EnrollStudentComponent,
+  },
+  {
+    path: 'student/result',
+    component: ShowStudentResultComponent,
+  },
+  {
+    path: 'student/result/add',
+    component: AddStudentResultComponent,
   },
 
   { path: 'student/edit/:id', component: AddStudentComponent },

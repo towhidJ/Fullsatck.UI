@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Course } from 'src/app/model/course.model';
 import { Student, StudentDto } from 'src/app/model/student.model';
 
 @Injectable({
@@ -35,5 +36,11 @@ export class StudentService {
   }
   deleteStudent(id: number): Observable<number> {
     return this.http.delete<number>(this.url + '/api/student/remove/' + id);
+  }
+
+  getCourseByStudentId(id?: number): Observable<Course[]> {
+    return this.http.get<Course[]>(
+      this.url + '/api/student/getcoursebydepid?depId=' + id
+    );
   }
 }
