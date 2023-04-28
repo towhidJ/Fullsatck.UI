@@ -10,7 +10,19 @@ export interface Teacher {
   creditToBeTaken: number;
   remainingCredit: number;
   departmentId: number;
-  department: Department;
+  departmentTB: Department;
   designationId: number;
   designation: Designation;
+}
+
+export interface TeacherDto {
+  id: number;
+  teacherName: string;
+  address?: string | null;
+  email?: string | null;
+  contactNo: string;
+  creditToBeTaken: number;
+  remainingCredit: number;
+  departmentId: number;
+  designationId: number;
 }

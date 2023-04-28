@@ -1,7 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { StudentResultView } from 'src/app/model/student.model';
+import {
+  StudentResultDto,
+  StudentResultView,
+} from 'src/app/model/student.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +21,12 @@ export class StudentResultService {
       this.url + '/api/StudentResult/result/',
       { params: queryParams }
     );
+  }
+
+  addStudentResult(addResult: StudentResultDto): Observable<string> {
+    addResult.id = 0;
+    return this.http.post(this.url + '/api/StudentResult/result', addResult, {
+      responseType: 'text',
+    });
   }
 }

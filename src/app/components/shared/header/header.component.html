@@ -20,9 +20,9 @@
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="#">
         <img
-          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-          height="15"
-          alt="MDB Logo"
+          src="../../../../assets/Image/bgclogo.png"
+          height="40"
+          alt="BGC"
           loading="lazy"
         />
       </a>
@@ -89,6 +89,39 @@
             </li>
             <li>
               <a class="dropdown-item" routerLink="course-view">Course View</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Teachers
+          </a>
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" routerLink="teacher/add"
+                >Appoint Teacher</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="teachers">Teachers </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="teacher/course-assign"
+                >Course Assign To Teacher
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="teacher/show-assign-teacher"
+                >Show Assign Teacher</a
+              >
             </li>
           </ul>
         </li>

@@ -1,7 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course, CourseDto, CourseShowView } from 'src/app/model/course.model';
+import { Teacher, TeacherDto } from 'src/app/model/teacher.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,37 +10,33 @@ export class TeacherService {
   constructor(private http: HttpClient) {}
 
   url: string = 'https://localhost:7261';
-  getAllCourse(): Observable<Course[]> {
-    return this.http.get<Course[]>(this.url + '/api/courses');
+  getAllTeacher(): Observable<Teacher[]> {
+    return this.http.get<Teacher[]>(this.url + '/api/Teacher');
   }
-  getCourseById(id: number): Observable<Course[]> {
-    return this.http.get<Course[]>(this.url + '/api/courses/getbyid/' + id);
+  getTeacherById(id: number): Observable<Teacher[]> {
+    return this.http.get<Teacher[]>(this.url + '/api/Teacher/getbyid/' + id);
   }
 
-  getCourseByDepId(id: number): Observable<CourseShowView[]> {
-    let queryParams = new HttpParams();
-    queryParams = queryParams.append('departmentId', id);
-    return this.http.get<CourseShowView[]>(
-      this.url + '/api/courses/getByDepId/',
-      { params: queryParams }
+  addTeacher(addTeacher: TeacherDto): Observable<TeacherDto> {
+    addTeacher.id = 0;
+    return this.http.post<TeacherDto>(
+      this.url + '/api/Teacher/create',
+      addTeacher
     );
   }
 
-  addCourse(addCourse: CourseDto): Observable<CourseDto> {
-    addCourse.id = 0;
-    return this.http.post<CourseDto>(
-      this.url + '/api/courses/create',
-      addCourse
+  updateTeacher(id: number, updateTeacher: TeacherDto): Observable<TeacherDto> {
+    return this.http.put<TeacherDto>(
+      this.url + '/api/Teacher/update',
+      updateTeacher
     );
   }
-
-  updateCourse(id: number, updateCourse: CourseDto): Observable<CourseDto> {
-    return this.http.put<CourseDto>(
-      this.url + '/api/courses/update',
-      updateCourse
-    );
+  deleteTeacher(id: number): Observable<number> {
+    return this.http.delete<number>(this.url + '/api/Teacher/remove/' + id);
   }
-  deleteCourse(id: number): Observable<number> {
-    return this.http.delete<number>(this.url + '/api/courses/remove/' + id);
+  getTeacherByDepId(id?: number): Observable<Teacher[]> {
+    return this.http.get<Teacher[]>(
+      this.url + '/api/teacher/getteacherbydepid?depId=' + id
+    );
   }
 }

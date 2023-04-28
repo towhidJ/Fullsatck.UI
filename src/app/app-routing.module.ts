@@ -11,6 +11,10 @@ import { AddStudentComponent } from './components/students/add-student/add-stude
 import { EnrollStudentComponent } from './components/students/enroll-student/enroll-student.component';
 import { ShowStudentResultComponent } from './components/students/show-student-result/show-student-result.component';
 import { StudentListComponent } from './components/students/student-list/student-list.component';
+import { AddEditTeacherComponent } from './components/teachers/add-edit-teacher/add-edit-teacher.component';
+import { CourseAssignTeacherComponent } from './components/teachers/course-assign-teacher/course-assign-teacher.component';
+import { ShowAssignTeacherComponent } from './components/teachers/show-assign-teacher/show-assign-teacher.component';
+import { TeacherListComponent } from './components/teachers/teacher-list/teacher-list.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RoleGuard } from './shared/role.guard';
 
@@ -67,7 +71,14 @@ const routes: Routes = [
     component: CourseAssignViewListComponent,
   },
   { path: 'course/edit/:id', component: AddEditCourseComponent },
-
+  { path: 'teachers', component: TeacherListComponent },
+  { path: 'teacher/add', component: AddEditTeacherComponent },
+  { path: 'teacher/edit/:id', component: AddEditTeacherComponent },
+  { path: 'teacher/course-assign', component: CourseAssignTeacherComponent },
+  {
+    path: 'teacher/show-assign-teacher',
+    component: ShowAssignTeacherComponent,
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

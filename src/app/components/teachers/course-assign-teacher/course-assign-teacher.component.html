@@ -1,0 +1,117 @@
+<div class="text-center pt-5">
+  <h1>Course Assign to Teacher</h1>
+  <hr class="fs-5" />
+</div>
+
+<div class="container my-5">
+  <div class="d-flex justify-content-center my-5">
+    <form class="form" [formGroup]="courseAssignForm" (ngSubmit)="onSubmit()">
+      <input hidden formControlName="id" type="text" />
+      <select
+        class="form-select mb-4"
+        formControlName="departmentId"
+        (change)="onChangeDepId($event)"
+      >
+        <option value="">---Select Department---</option>
+        <option value="{{ dep.id }}" *ngFor="let dep of departments">
+          {{ dep.departmentName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          departmentId?.invalid &&
+          (departmentId?.touched || departmentId?.dirty)
+        "
+      >
+        <div *ngIf="departmentId?.errors?.['required']">
+          Please select Student Reg No
+        </div>
+      </div>
+      <select
+        class="form-select mb-4"
+        formControlName="teacherId"
+        (change)="onChangeTecId($event)"
+      >
+        <option value="">---Select Teacher---</option>
+        <option value="{{ tec.id }}" *ngFor="let tec of teachers">
+          {{ tec.teacherName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="teacherId?.invalid && (teacherId?.touched || teacherId?.dirty)"
+      >
+        <div *ngIf="teacherId?.errors?.['required']">
+          Please select Student Reg No
+        </div>
+      </div>
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example3"
+          class="form-control"
+          value="{{ creditToBeTaken }}"
+          readonly
+        />
+        <label class="form-label" for="form6Example3">Credit To Be Taken</label>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example3"
+          class="form-control"
+          value="{{ remainingCredit }}"
+          readonly
+        />
+        <label class="form-label" for="form6Example3">Remaining Credit</label>
+      </div>
+
+      <select
+        class="form-select mb-4"
+        formControlName="courseId"
+        (change)="onChangeCourseId($event)"
+      >
+        <option value="">---Select Student Course Name ---</option>
+        <option value="{{ c.id }}" *ngFor="let c of courses">
+          {{ c.courseCode }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="courseId?.invalid && (courseId?.touched || courseId?.dirty)"
+      >
+        <div *ngIf="courseId?.errors?.['required']">Please select Course</div>
+      </div>
+
+      <div class="form-floating mb-4 datepicker">
+        <input
+          type="text"
+          id="form6Example6"
+          class="form-control"
+          value="{{ courseName }}"
+          readonly
+        />
+        <label class="form-label" for="form6Example6">Course Name</label>
+      </div>
+      <div class="form-floating mb-4 datepicker">
+        <input
+          type="text"
+          id="form6Example6"
+          class="form-control"
+          value="{{ credit }}"
+          readonly
+        />
+        <label class="form-label" for="form6Example6">Credit</label>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">
+        Assign Course
+      </button>
+      <!-- <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span> -->
+    </form>
+  </div>
+</div>

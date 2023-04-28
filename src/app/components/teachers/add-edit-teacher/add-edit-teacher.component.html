@@ -1,1 +1,150 @@
-<p>add-edit-teacher works!</p>
+<div class="row justify-content-center pt-5">
+  <div class="col-2">
+    <h1 *ngIf="isAddMode">Appoint Teacher</h1>
+    <h1 *ngIf="!isAddMode">Edit Teacher</h1>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="d-flex justify-content-center my-5">
+    <form class="form" [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <!-- Text input -->
+      <input hidden formControlName="id" type="text" />
+      <div class="form-floating mb-4">
+        <input
+          type="text"
+          id="form6Example3"
+          class="form-control"
+          formControlName="teacherName"
+        />
+        <label class="form-label" for="form6Example3">Teacher Name</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            teacherName?.invalid && (teacherName?.touched || teacherName?.dirty)
+          "
+        >
+          <div *ngIf="teacherName?.errors?.['required']">
+            Teacher Name can't be empty
+          </div>
+        </div>
+      </div>
+
+      <!-- address input -->
+      <div class="form-floating mb-4">
+        <textarea
+          class="form-control"
+          id="form6Example7"
+          rows="8"
+          formControlName="address"
+        ></textarea>
+        <label class="form-label" for="form6Example7">Address</label>
+      </div>
+
+      <div class="form-floating mb-4" *ngIf="isAddMode">
+        <input
+          type="text"
+          id="form6Example3"
+          class="form-control"
+          formControlName="email"
+        />
+        <label class="form-label" for="form6Example3">Email</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="email?.invalid && (email?.touched || email?.dirty)"
+        >
+          <div *ngIf="email?.errors?.['email']">Please input valid email</div>
+        </div>
+      </div>
+
+      <div class="form-floating mb-4" *ngIf="isAddMode">
+        <input
+          type="text"
+          id="form6Example4"
+          class="form-control"
+          formControlName="contactNo"
+        />
+        <label class="form-label" for="form6Example4">Phone</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="contactNo?.invalid && (contactNo?.touched || contactNo?.dirty)"
+        >
+          <div *ngIf="contactNo?.errors?.['required']">
+            please type your Phone Number
+          </div>
+          <div *ngIf="contactNo?.errors?.['min']">
+            Enter valid Bd Phone Number(Digit 11)
+          </div>
+        </div>
+      </div>
+
+      <select class="form-select mb-4" formControlName="designationId">
+        <option value="">---Select Designation---</option>
+        <option value="{{ deg.id }}" *ngFor="let deg of designations">
+          {{ deg.designationName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          designationId?.invalid &&
+          (designationId?.touched || designationId?.dirty)
+        "
+      >
+        <div *ngIf="designationId?.errors?.['required']">
+          Please select designation
+        </div>
+      </div>
+
+      <select class="form-select mb-4" formControlName="departmentId">
+        <option value="">---Select Department---</option>
+        <option value="{{ dep.id }}" *ngFor="let dep of departments">
+          {{ dep.departmentName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          departmentId?.invalid &&
+          (departmentId?.touched || departmentId?.dirty)
+        "
+      >
+        <div *ngIf="departmentId?.errors?.['required']">
+          Please select Department
+        </div>
+      </div>
+
+      <!-- credit input -->
+      <div class="form-floating mb-4" *ngIf="isAddMode">
+        <input
+          type="text"
+          id="form6Example4"
+          class="form-control"
+          formControlName="creditToBeTaken"
+        />
+        <label class="form-label" for="form6Example4">Credit To Be Taken</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            creditToBeTaken?.invalid &&
+            (creditToBeTaken?.touched || creditToBeTaken?.dirty)
+          "
+        >
+          <div *ngIf="creditToBeTaken?.errors?.['required']">
+            please type your credit
+          </div>
+          <div *ngIf="creditToBeTaken?.errors?.['min']">
+            Enter number between 10 to 50
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-rounded btn-block mb-4">
+        {{ btnText }}
+      </button>
+      <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span>
+    </form>
+  </div>
+</div>
