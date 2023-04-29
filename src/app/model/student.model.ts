@@ -42,6 +42,7 @@ export interface StudentResultView {
   courseName: string;
   credit: number;
   grade: string;
+  gp: string;
 }
 
 export interface StudentView {

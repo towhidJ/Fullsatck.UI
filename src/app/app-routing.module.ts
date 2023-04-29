@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddClassScheduleComponent } from './components/class-room-allocate/add-class-schedule/add-class-schedule.component';
+import { ShowClassScheduleComponent } from './components/class-room-allocate/show-class-schedule/show-class-schedule.component';
 import { AddEditCourseComponent } from './components/courses/add-edit-course/add-edit-course.component';
 import { CourseAssignViewListComponent } from './components/courses/course-assign-view-list/course-assign-view-list.component';
 import { CourseListComponent } from './components/courses/course-list/course-list.component';
+import { AddEditDepartmentComponent } from './components/departments/add-edit-department/add-edit-department.component';
+import { DepartmentListComponent } from './components/departments/department-list/department-list.component';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
 import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
 import { HomeComponent } from './components/employees/home/home.component';
@@ -35,6 +39,18 @@ const routes: Routes = [
   {
     path: 'employee/add',
     component: AddEmployeeComponent,
+  },
+  {
+    path: 'department/add',
+    component: AddEditDepartmentComponent,
+  },
+  {
+    path: 'department/edit/:id',
+    component: AddEditDepartmentComponent,
+  },
+  {
+    path: 'department',
+    component: DepartmentListComponent,
   },
   {
     path: 'student/add',
@@ -79,6 +95,10 @@ const routes: Routes = [
     path: 'teacher/show-assign-teacher',
     component: ShowAssignTeacherComponent,
   },
+  { path: 'cra/add', component: AddClassScheduleComponent },
+
+  { path: 'cra', component: ShowClassScheduleComponent },
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

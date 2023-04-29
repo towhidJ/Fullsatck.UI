@@ -8,9 +8,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptorService } from 'src/services/token-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddClassScheduleComponent } from './components/class-room-allocate/add-class-schedule/add-class-schedule.component';
+import { ShowClassScheduleComponent } from './components/class-room-allocate/show-class-schedule/show-class-schedule.component';
 import { AddEditCourseComponent } from './components/courses/add-edit-course/add-edit-course.component';
 import { CourseAssignViewListComponent } from './components/courses/course-assign-view-list/course-assign-view-list.component';
 import { CourseListComponent } from './components/courses/course-list/course-list.component';
+import { AddEditDepartmentComponent } from './components/departments/add-edit-department/add-edit-department.component';
+import { DepartmentListComponent } from './components/departments/department-list/department-list.component';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
 import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
 import { HomeComponent } from './components/employees/home/home.component';
@@ -27,6 +31,7 @@ import { ShowAssignTeacherComponent } from './components/teachers/show-assign-te
 import { TeacherListComponent } from './components/teachers/teacher-list/teacher-list.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { UserComponent } from './components/user/user.component';
+import { NewLinePipePipe } from './new-line-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +55,11 @@ import { UserComponent } from './components/user/user.component';
     AddStudentResultComponent,
     ShowStudentResultComponent,
     ShowAssignTeacherComponent,
+    DepartmentListComponent,
+    AddEditDepartmentComponent,
+    AddClassScheduleComponent,
+    ShowClassScheduleComponent,
+    NewLinePipePipe,
   ],
   imports: [
     BrowserModule,

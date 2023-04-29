@@ -134,7 +134,7 @@ export class AddEditCourseComponent {
         },
         error: (error) => {
           this.loading = false;
-          this.toaster.error(error);
+          this.toaster.error(error.error);
           console.log(error);
         },
       });

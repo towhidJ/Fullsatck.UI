@@ -43,6 +43,7 @@
         <th>Course Code</th>
         <th>Name</th>
         <th>Grade</th>
+        <th>GPA</th>
       </tr>
     </thead>
     <tbody *ngFor="let res of results">
@@ -62,6 +63,9 @@
         </td>
         <td>
           <p class="fw-normal mb-1">{{ res.grade }}</p>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{ res.gp }}</p>
         </td>
       </tr>
     </tbody>
