@@ -1,7 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ClassScheduleViewModel } from 'src/app/model/class-schedule.model';
+import {
+  AllocateClassDto,
+  ClassScheduleViewModel,
+} from 'src/app/model/class-schedule.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +21,18 @@ export class ClassScheduleService {
       this.url + '/api/ClassSchedule',
       { params: queryParams }
     );
+  }
+
+  addSchedule(addClass: AllocateClassDto): Observable<string> {
+    addClass.id = 0;
+    return this.http.post(this.url + '/api/ClassSchedule/addclass', addClass, {
+      responseType: 'text',
+    });
+  }
+
+  unallocatedClass(): Observable<string> {
+    return this.http.get(this.url + '/api/ClassSchedule/unallocatedClass', {
+      responseType: 'text',
+    });
   }
 }

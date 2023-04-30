@@ -7,8 +7,6 @@ import { CourseAssignViewListComponent } from './components/courses/course-assig
 import { CourseListComponent } from './components/courses/course-list/course-list.component';
 import { AddEditDepartmentComponent } from './components/departments/add-edit-department/add-edit-department.component';
 import { DepartmentListComponent } from './components/departments/department-list/department-list.component';
-import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
-import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
 import { HomeComponent } from './components/employees/home/home.component';
 import { AddStudentResultComponent } from './components/students/add-student-result/add-student-result.component';
 import { AddStudentComponent } from './components/students/add-student/add-student.component';
@@ -31,73 +29,105 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
-  {
-    path: 'employee',
-    component: EmployeesListComponent,
-    canActivate: [RoleGuard],
-  },
-  {
-    path: 'employee/add',
-    component: AddEmployeeComponent,
-  },
+
   {
     path: 'department/add',
     component: AddEditDepartmentComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'department/edit/:id',
     component: AddEditDepartmentComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'department',
     component: DepartmentListComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'student/add',
     component: AddStudentComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'student',
     component: StudentListComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'student/enroll',
     component: EnrollStudentComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'student/result',
     component: ShowStudentResultComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'student/result/add',
     component: AddStudentResultComponent,
+    canActivate: [RoleGuard],
   },
 
   { path: 'student/edit/:id', component: AddStudentComponent },
   {
     path: 'course/add',
     component: AddEditCourseComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'course',
     component: CourseListComponent,
+    canActivate: [RoleGuard],
   },
   {
     path: 'course-view',
     component: CourseAssignViewListComponent,
+    canActivate: [RoleGuard],
   },
-  { path: 'course/edit/:id', component: AddEditCourseComponent },
-  { path: 'teachers', component: TeacherListComponent },
-  { path: 'teacher/add', component: AddEditTeacherComponent },
-  { path: 'teacher/edit/:id', component: AddEditTeacherComponent },
-  { path: 'teacher/course-assign', component: CourseAssignTeacherComponent },
+  {
+    path: 'course/edit/:id',
+    component: AddEditCourseComponent,
+    canActivate: [RoleGuard],
+  },
+  {
+    path: 'teachers',
+    component: TeacherListComponent,
+    canActivate: [RoleGuard],
+  },
+  {
+    path: 'teacher/add',
+    component: AddEditTeacherComponent,
+    canActivate: [RoleGuard],
+  },
+  {
+    path: 'teacher/edit/:id',
+    component: AddEditTeacherComponent,
+    canActivate: [RoleGuard],
+  },
+  {
+    path: 'teacher/course-assign',
+    component: CourseAssignTeacherComponent,
+    canActivate: [RoleGuard],
+  },
   {
     path: 'teacher/show-assign-teacher',
     component: ShowAssignTeacherComponent,
+    canActivate: [RoleGuard],
   },
-  { path: 'cra/add', component: AddClassScheduleComponent },
+  {
+    path: 'cra/add',
+    component: AddClassScheduleComponent,
+    canActivate: [RoleGuard],
+  },
 
-  { path: 'cra', component: ShowClassScheduleComponent },
+  {
+    path: 'cra',
+    component: ShowClassScheduleComponent,
+    canActivate: [RoleGuard],
+  },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

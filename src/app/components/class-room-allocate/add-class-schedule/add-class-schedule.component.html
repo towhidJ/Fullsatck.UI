@@ -1,1 +1,111 @@
-<p>add-class-schedule works!</p>
+<div class="text-center pt-5">
+  <h1>Add Class Scheduled</h1>
+  <hr class="fs-5" />
+</div>
+
+<div class="container my-5">
+  <div class="d-flex justify-content-center my-5">
+    <form class="form" [formGroup]="classScheduleForm" (ngSubmit)="onSubmit()">
+      <input hidden formControlName="id" type="text" />
+      <select
+        class="form-select mb-4"
+        formControlName="departmentId"
+        (change)="onChangeDepId($event)"
+      >
+        <option value="">---Select Department---</option>
+        <option value="{{ dep.id }}" *ngFor="let dep of departments">
+          {{ dep.departmentName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          departmentId?.invalid &&
+          (departmentId?.touched || departmentId?.dirty)
+        "
+      >
+        <div *ngIf="departmentId?.errors?.['required']">
+          Please select Student Reg No
+        </div>
+      </div>
+
+      <select class="form-select mb-4" formControlName="courseId">
+        <option value="">---Select Student Course Name ---</option>
+        <option value="{{ c.id }}" *ngFor="let c of courses">
+          {{ c.courseName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="courseId?.invalid && (courseId?.touched || courseId?.dirty)"
+      >
+        <div *ngIf="courseId?.errors?.['required']">Please select Course</div>
+      </div>
+      <select class="form-select mb-4" formControlName="roomId">
+        <option value="">---Select Room ---</option>
+        <option value="{{ rm.id }}" *ngFor="let rm of rooms">
+          {{ rm.roomNo }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="roomId?.invalid && (roomId?.touched || roomId?.dirty)"
+      >
+        <div *ngIf="roomId?.errors?.['required']">Please select Room No</div>
+      </div>
+      <select class="form-select mb-4" formControlName="dayId">
+        <option value="">---Select Day ---</option>
+        <option value="{{ day.id }}" *ngFor="let day of days">
+          {{ day.dayName }}
+        </option>
+      </select>
+      <div
+        class="alert alert-danger"
+        *ngIf="dayId?.invalid && (dayId?.touched || dayId?.dirty)"
+      >
+        <div *ngIf="dayId?.errors?.['required']">Please select Day</div>
+      </div>
+
+      <div class="form-floating mb-4">
+        <input
+          type="time"
+          id="form6Example3"
+          class="form-control"
+          formControlName="fromTime"
+        />
+        <label class="form-label" for="form6Example3">Start Time</label>
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="fromTime?.invalid && (fromTime?.touched || fromTime?.dirty)"
+      >
+        <div *ngIf="fromTime?.errors?.['required']">
+          Please Class Start Time
+        </div>
+      </div>
+      <div class="form-floating mb-4">
+        <input
+          type="time"
+          id="form6Example3"
+          class="form-control"
+          formControlName="toTime"
+        />
+        <label class="form-label" for="form6Example3">End Time</label>
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="toTime?.invalid && (toTime?.touched || toTime?.dirty)"
+      >
+        <div *ngIf="toTime?.errors?.['required']">
+          Please Enter Class End Time
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">
+        Assign Course
+      </button>
+      <!-- <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span> -->
+    </form>
+  </div>
+</div>

@@ -3,8 +3,13 @@
     <div>
       <h1 class="text-center">Course Assign Teacher List</h1>
     </div>
-    <div>
-      <a class="btn" routerLink="/teacher/course-assign">Assign Course</a>
+    <div class="row row-cols-1 gap-2">
+      <a class="btn btn-secondary" routerLink="/teacher/course-assign"
+        >Assign Course</a
+      >
+      <button class="btn btn-danger" (click)="onUnassignCourse()">
+        Unassign Course
+      </button>
     </div>
   </div>
 

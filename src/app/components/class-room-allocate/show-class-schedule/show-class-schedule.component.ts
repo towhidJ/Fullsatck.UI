@@ -50,4 +50,18 @@ export class ShowClassScheduleComponent {
     var depId = value.target.value;
     this.getScheduleByDepartment(depId);
   }
+
+  onUnallocatedClass() {
+    if (confirm('Are you unallocated all class?')) {
+      this.classScheduleService.unallocatedClass().subscribe({
+        next: (data: any) => {
+          this.toaster.success(data);
+          // this.reloadPage();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
+  }
 }

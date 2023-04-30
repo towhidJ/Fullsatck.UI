@@ -31,4 +31,10 @@ export class CourseAssignTeacherService {
       }
     );
   }
+
+  unassignCourse(): Observable<string> {
+    return this.http.get(this.url + '/api/CourseAssignToTeacher/unassign', {
+      responseType: 'text',
+    });
+  }
 }

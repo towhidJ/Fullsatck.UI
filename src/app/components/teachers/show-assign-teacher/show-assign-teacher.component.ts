@@ -53,4 +53,18 @@ export class ShowAssignTeacherComponent implements OnInit {
     var depId = value.target.value;
     this.getCouesesByDepartment(depId);
   }
+
+  onUnassignCourse() {
+    if (confirm('Are you unallocated all class?')) {
+      this.courseAssignService.unassignCourse().subscribe({
+        next: (data: any) => {
+          this.toaster.success(data);
+          // this.reloadPage();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
+  }
 }

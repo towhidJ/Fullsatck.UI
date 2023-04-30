@@ -31,7 +31,7 @@ export class UserService {
     if (loggintokenROle == 'admin') {
       return true;
     } else {
-      alert('you not having access');
+      alert('you not having access please Login First');
       return false;
     }
   }

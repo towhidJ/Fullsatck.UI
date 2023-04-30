@@ -10,3 +10,14 @@ export interface ClassScheduleViewModel {
   toTime: string;
   schedule: string;
 }
+
+export interface AllocateClassDto {
+  id: number;
+  fromTime: string;
+  toTime: string;
+  departmentId: number;
+  courseId: number;
+  roomId: number;
+  dayId: number;
+  action: boolean | true;
+}
