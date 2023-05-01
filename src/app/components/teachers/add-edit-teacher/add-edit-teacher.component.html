@@ -1,11 +1,9 @@
-<div class="row justify-content-center pt-5">
-  <div class="col-2">
-    <h1 *ngIf="isAddMode">Appoint Teacher</h1>
-    <h1 *ngIf="!isAddMode">Edit Teacher</h1>
-  </div>
+<div class="text-center pt-5">
+  <h1 *ngIf="isAddMode">Appoint Teacher</h1>
+  <h1 *ngIf="!isAddMode">Edit Teacher</h1>
 </div>
 
-<div class="container my-5">
+<div class="container my-5 vh-100">
   <div class="d-flex justify-content-center my-5">
     <form class="form" [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
       <!-- 2 column grid layout with text inputs for the first and last names -->
