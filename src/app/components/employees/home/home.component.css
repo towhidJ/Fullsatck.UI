@@ -1,0 +1,185 @@
+.slide {
+  height: 600px;
+}
+.about-details {
+  padding: 0 50px 0 20px;
+}
+section.about-us {
+  padding: 0;
+}
+section.about-us h2 {
+  font-size: 40px;
+  font-weight: 300;
+  padding: 40px 0 30px;
+  font-family: "Nunito", sans-serif;
+}
+section.about-us p {
+  font-size: 17px;
+  font-weight: inherit;
+  line-height: 30px;
+  padding: 0 0 40px 0;
+}
+.about-details {
+  padding: 0 50px 0 20px;
+}
+section.about-us .col-lg-6.about-info1 {
+  padding: 0;
+  margin: 0;
+}
+section.about-us .col-lg-6.about-info2 {
+  padding: 0;
+  margin: 0;
+}
+/*-- Service Section --*/
+section.our-services {
+  padding: 100px 0;
+  background: url(../../../../assets/HomePage/images/service.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+section.our-services .serv-info {
+  margin-left: -85px;
+}
+section.our-services .serv-info h4 {
+  font-size: 22px;
+}
+section.our-services .serv-info p.serv {
+  font-size: 15px;
+}
+section.our-gallery {
+  padding: 100px 0;
+  background-color: #e4e4e4;
+}
+h3.text-center {
+  font-size: 45px;
+  color: #fafafa;
+  font-weight: 300;
+  padding: 20px 0;
+  font-family: "Nunito", sans-serif;
+}
+p.text-center {
+  font-size: 17px;
+  color: #ffffff;
+  font-weight: inherit;
+  padding: 0px 0 70px;
+}
+section.our-gallery img.img-responsive {
+  opacity: 0.89;
+}
+section.our-gallery img.img-responsive:hover {
+  opacity: 1;
+}
+
+section.our-services h3.text-center {
+  font-size: 45px;
+  color: #fff;
+  font-weight: 300;
+  padding: 20px 0;
+  font-family: "Nunito", sans-serif;
+}
+section.our-services p.text-center {
+  font-size: 17px;
+  color: #fff;
+  font-weight: inherit;
+  padding: 0px 0 70px;
+}
+section.our-services i.fa {
+  font-size: 25px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 75px;
+  line-height: 74px;
+  height: 75px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  background-color: transparent;
+}
+section.our-services i.fa:hover {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #d46767;
+}
+section.our-services .serv-info {
+  margin-left: -110px;
+}
+section.our-services .serv-info h4 {
+  font-size: 25px;
+  font-weight: 500;
+  padding: 0 0 10px;
+  color: #fff;
+}
+section.our-services .serv-info p.serv {
+  font-size: 16px;
+  font-weight: inherit;
+  padding-bottom: 50px;
+  line-height: 30px;
+  color: #fff;
+}
+section.our-services i.fa.fa-university {
+  padding-left: 3px;
+}
+
+@media (max-width: 1200px) {
+  section.our-services .serv-info {
+    margin-left: -30px;
+  }
+}
+
+section.contact-us {
+  padding: 100px 0;
+  background: url(../../../../assets/HomePage/images/p6.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+section.contact-us .contact-info {
+  text-align: justify;
+}
+section.contact-us .contact-info h4 {
+  font-size: 30px;
+  padding: 20px 0;
+  color: #fff;
+  font-weight: 300;
+  font-family: "Nunito", sans-serif;
+}
+section.contact-us .contact-info p {
+  font-size: 18px;
+  padding: 10px 0;
+  color: #fff;
+  font-weight: inherit;
+  line-height: 25px;
+}
+section.contact-us .contact-info a {
+  color: #fff;
+  text-decoration: none;
+}
+input#name,
+input#email,
+textarea#comments {
+  color: #fff;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 17px;
+  border: 1px solid #fff;
+}
+input#name,
+input#email {
+  height: 55px;
+}
+@media (max-width: 768px) {
+  section.about-us h2 {
+    text-align: center;
+  }
+  section.about-us p {
+    text-align: justify;
+  }
+  section.our-services .serv-info {
+    margin-left: -25px;
+  }
+}
