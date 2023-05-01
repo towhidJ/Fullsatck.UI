@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TokenStorageService } from 'src/services/token-storage.service';
 import { UserService } from 'src/services/user.service';
 
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private service: UserService,
     private router: Router,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private toaster: ToastrService
   ) {
     localStorage.clear();
   }
@@ -50,12 +52,12 @@ export class LoginComponent implements OnInit {
           this.roles = this.tokenStorage.getUser().roles;
           console.log(this.tokenStorage.getToken());
           this.router.navigate(['']);
-          // this.reloadPage();
+          this.reloadPage();
         },
         error: (err) => {
           this.errorMessage = err.error;
-
           this.isLoginFailed = true;
+          this.toaster.error(this.errorMessage);
         },
       });
     }
