@@ -1,4 +1,4 @@
 # Admin Login
 
-user : towhid
-password: admin
+-user : towhid;
+-password: admin;
