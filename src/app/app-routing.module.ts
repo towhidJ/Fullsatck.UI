@@ -11,6 +11,7 @@ import { HomeComponent } from './components/employees/home/home.component';
 import { AddStudentResultComponent } from './components/students/add-student-result/add-student-result.component';
 import { AddStudentComponent } from './components/students/add-student/add-student.component';
 import { EnrollStudentComponent } from './components/students/enroll-student/enroll-student.component';
+import { ResultPdfComponent } from './components/students/result-pdf/result-pdf.component';
 import { ShowStudentResultComponent } from './components/students/show-student-result/show-student-result.component';
 import { StudentListComponent } from './components/students/student-list/student-list.component';
 import { AddEditTeacherComponent } from './components/teachers/add-edit-teacher/add-edit-teacher.component';
@@ -64,6 +65,10 @@ const routes: Routes = [
     path: 'student/result',
     component: ShowStudentResultComponent,
     canActivate: [RoleGuard],
+  },
+  {
+    path: 'resultpdf/:id',
+    component: ResultPdfComponent,
   },
   {
     path: 'student/result/add',

@@ -32,6 +32,7 @@ import { TeacherListComponent } from './components/teachers/teacher-list/teacher
 import { LoginComponent } from './components/user/login/login.component';
 import { UserComponent } from './components/user/user.component';
 import { NewLinePipePipe } from './new-line-pipe.pipe';
+import { ResultPdfComponent } from './components/students/result-pdf/result-pdf.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { NewLinePipePipe } from './new-line-pipe.pipe';
     AddClassScheduleComponent,
     ShowClassScheduleComponent,
     NewLinePipePipe,
+    ResultPdfComponent,
   ],
   imports: [
     BrowserModule,
