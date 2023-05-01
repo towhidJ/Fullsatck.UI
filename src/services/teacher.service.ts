@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Teacher, TeacherDto } from 'src/app/model/teacher.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Teacher, TeacherDto } from 'src/app/model/teacher.model';
 export class TeacherService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
   getAllTeacher(): Observable<Teacher[]> {
     return this.http.get<Teacher[]>(this.url + '/api/Teacher');
   }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class UserService {
     private http: HttpClient,
     private tokenStorage: TokenStorageService
   ) {}
-  readonly BaseURI = 'https://localhost:7261';
+  readonly BaseURI = environment.baseApiUrl;
 
   login(formData: any) {
     return this.http.post(this.BaseURI + '/api/auth/Login', formData);

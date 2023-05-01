@@ -5,7 +5,6 @@ import { Course } from 'src/app/model/course.model';
 import { Department } from 'src/app/model/department.model';
 import { Semester } from 'src/app/model/semester.model';
 import { CourseService } from 'src/services/course.service';
-import { DepartmentService } from 'src/services/department.service';
 
 @Component({
   selector: 'app-course-list',
@@ -19,7 +18,6 @@ export class CourseListComponent implements OnInit {
 
   constructor(
     private courseService: CourseService,
-    private departmentService: DepartmentService,
     private toaster: ToastrService,
     route: Router
   ) {}

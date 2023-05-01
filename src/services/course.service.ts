@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course, CourseShowView } from 'src/app/model/course.model';
+import { environment } from 'src/environments/environment';
 import { CourseDto } from './../app/model/course.model';
 
 @Injectable({
@@ -10,7 +11,7 @@ import { CourseDto } from './../app/model/course.model';
 export class CourseService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
   getAllCourse(): Observable<Course[]> {
     return this.http.get<Course[]>(this.url + '/api/courses');
   }

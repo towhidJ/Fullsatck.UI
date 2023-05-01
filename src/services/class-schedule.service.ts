@@ -5,6 +5,7 @@ import {
   AllocateClassDto,
   ClassScheduleViewModel,
 } from 'src/app/model/class-schedule.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ import {
 export class ClassScheduleService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
 
   getScheduleByDepId(id: number): Observable<ClassScheduleViewModel[]> {
     let queryParams = new HttpParams();

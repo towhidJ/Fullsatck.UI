@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EnrollCourseDto, StudentView } from 'src/app/model/student.model';
+import { environment } from 'src/environments/environment';
 import { Course } from './../app/model/course.model';
 
 @Injectable({
@@ -10,7 +11,7 @@ import { Course } from './../app/model/course.model';
 export class EnrollcourseService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
 
   enrollCourse(enrollCourse: EnrollCourseDto): Observable<string> {
     enrollCourse.id = 0;

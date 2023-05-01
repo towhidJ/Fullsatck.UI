@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ShowAssignView } from 'src/app/model/course-assign.model';
+import { environment } from 'src/environments/environment';
 import { CourseAssignTeacherDto } from './../app/model/course-assign.model';
 
 @Injectable({
@@ -10,7 +11,7 @@ import { CourseAssignTeacherDto } from './../app/model/course-assign.model';
 export class CourseAssignTeacherService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
 
   getCourseByDepId(id: number): Observable<ShowAssignView[]> {
     let queryParams = new HttpParams();

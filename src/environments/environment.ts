@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  baseApiUrl: 'https://localhost:7032',
+  baseApiUrl: 'http://towhidi3-001-site1.dtempurl.com',
 };

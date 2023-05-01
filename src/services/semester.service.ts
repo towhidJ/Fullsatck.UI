@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Semester } from 'src/app/model/semester.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Semester } from 'src/app/model/semester.model';
 export class SemesterService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
   getAllDepartment(): Observable<Semester[]> {
     return this.http.get<Semester[]>(this.url + '/api/semester');
   }

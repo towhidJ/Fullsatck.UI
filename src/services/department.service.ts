@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Department, DepartmentDto } from 'src/app/model/department.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Department, DepartmentDto } from 'src/app/model/department.model';
 export class DepartmentService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
   getAllDepartment(): Observable<Department[]> {
     return this.http.get<Department[]>(this.url + '/api/department');
   }

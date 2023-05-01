@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Designation } from 'src/app/model/designation.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Designation } from 'src/app/model/designation.model';
 export class DesiganationService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
   getAllDesignation(): Observable<Designation[]> {
     return this.http.get<Designation[]>(this.url + '/api/desination');
   }

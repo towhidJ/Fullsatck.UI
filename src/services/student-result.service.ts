@@ -5,6 +5,7 @@ import {
   StudentResultDto,
   StudentResultView,
 } from 'src/app/model/student.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ import {
 export class StudentResultService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'https://localhost:7261';
+  url: string = environment.baseApiUrl;
 
   getResultByStudentId(id: number): Observable<StudentResultView[]> {
     let queryParams = new HttpParams();
