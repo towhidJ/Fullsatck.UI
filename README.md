@@ -1,4 +1,5 @@
-# Admin Login
+###User Info
 
--user : towhid;
--password: admin;
+| Username | Password |
+| -------- | -------- |
+| towhid   | admin    |
